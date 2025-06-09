@@ -1,18 +1,18 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Settings2, Sparkles, Zap } from "lucide-react";
+import { Code, Sparkles, Zap } from "lucide-react";
 import { ReactNode } from "react";
 
 export default function Features() {
   return (
-    <section className="bg-zinc-50 py-16 md:py-32 dark:bg-transparent">
+    <section className=" py-16 md:py-32 dark:bg-transparent" id="features">
       <div className="@container mx-auto max-w-5xl px-6">
         <div className="text-center">
           <h2 className="text-balance text-4xl font-semibold lg:text-5xl">
             Built to cover your needs
           </h2>
           <p className="mt-4">
-            Libero sapiente aliquam quibusdam aspernatur, praesentium iusto
-            repellendus.
+            Our platform offers a powerful and intuitive environment to sharpen
+            your coding skills.
           </p>
         </div>
         <div className="@min-4xl:max-w-full @min-4xl:grid-cols-3 mx-auto mt-8 grid max-w-sm gap-6 *:text-center md:mt-16">
@@ -22,13 +22,15 @@ export default function Features() {
                 <Zap className="size-6" aria-hidden />
               </CardDecorator>
 
-              <h3 className="mt-6 font-medium">Customizable</h3>
+              <h3 className="mt-6 font-medium">Extensive Problem Library</h3>
             </CardHeader>
 
             <CardContent>
               <p className="text-sm">
-                Extensive customization options, allowing you to tailor every
-                aspect to meet your specific needs.
+                Access a continuously growing collection of diverse coding
+                challenges, carefully categorized by difficulty, topic, and even
+                real-world interview scenarios. Each problem comes with clear
+                descriptions and helpful examples to guide your solution.
               </p>
             </CardContent>
           </Card>
@@ -36,16 +38,18 @@ export default function Features() {
           <Card className="group shadow-zinc-950/5">
             <CardHeader className="pb-3">
               <CardDecorator>
-                <Settings2 className="size-6" aria-hidden />
+                <Code className="size-6" aria-hidden />
               </CardDecorator>
 
-              <h3 className="mt-6 font-medium">You have full control</h3>
+              <h3 className="mt-6 font-medium">Interactive Code Editor</h3>
             </CardHeader>
 
             <CardContent>
               <p className="mt-3 text-sm">
-                From design elements to functionality, you have complete control
-                to create a unique and personalized experience.
+                Write and test your code directly in our integrated editor,
+                which supports multiple programming languages. Get immediate
+                feedback on your submissions with detailed test case results,
+                helping you quickly identify and fix errors.
               </p>
             </CardContent>
           </Card>
@@ -56,13 +60,17 @@ export default function Features() {
                 <Sparkles className="size-6" aria-hidden />
               </CardDecorator>
 
-              <h3 className="mt-6 font-medium">Powered By AI</h3>
+              <h3 className="mt-6 font-medium">
+                Personalized Progress Tracking
+              </h3>
             </CardHeader>
 
             <CardContent>
               <p className="mt-3 text-sm">
-                Elements to functionality, you have complete control to create a
-                unique experience.
+                Stay on top of your learning journey with comprehensive
+                tracking. See your solved problems, submission history, and
+                performance trends over time, allowing you to easily identify
+                strengths and areas that need more attention.
               </p>
             </CardContent>
           </Card>

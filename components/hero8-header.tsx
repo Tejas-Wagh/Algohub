@@ -1,16 +1,15 @@
 "use client";
 import Link from "next/link";
-import { Logo } from "./logo";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import React from "react";
 import { ModeToggle } from "./mode-toggle";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const menuItems = [
-  { name: "Features", href: "#link" },
-  { name: "Solution", href: "#link" },
-  { name: "Pricing", href: "#link" },
-  { name: "About", href: "#link" },
+  { name: "Features", href: "/#features" },
+  { name: "Problems", href: "/problems" },
+  { name: "IDE", href: "/ide" },
 ];
 
 export const HeroHeader = () => {
@@ -27,9 +26,9 @@ export const HeroHeader = () => {
               <Link
                 href="/"
                 aria-label="home"
-                className="flex items-center space-x-2"
+                className="flex items-center space-x-2 font-bold"
               >
-                <Logo />
+                AlgoHub
               </Link>
 
               <button
@@ -73,17 +72,17 @@ export const HeroHeader = () => {
                 </ul>
               </div>
               <div className="flex w-full flex-col space-y-3 sm:flex-row sm:gap-3 sm:space-y-0 md:w-fit">
-                <Button asChild variant="outline" size="sm">
-                  <Link href="#">
-                    <span>Login</span>
-                  </Link>
-                </Button>
-                <Button asChild size="sm">
-                  <Link href="#">
-                    <span>Sign Up</span>
-                  </Link>
-                </Button>
                 <ModeToggle />
+                <SignedOut>
+                  <Button asChild variant="outline" size="sm">
+                    <Link href="/sign-in">
+                      <span>Login</span>
+                    </Link>
+                  </Button>
+                </SignedOut>
+                <SignedIn>
+                  <UserButton />
+                </SignedIn>
               </div>
             </div>
           </div>

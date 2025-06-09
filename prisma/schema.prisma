@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../lib/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model DefaultCode {
+  id           String   @id
+  language     Int
+  problemId    String
+  createdAt    DateTime @default(now())
+  functionCode String
+  mainCode     String
+  Problem      Problem  @relation(fields: [problemId], references: [id])
+}
+
+model Problem {
+  id          String        @id
+  title       String
+  description String
+  hidden      Boolean       @default(true)
+  slug        String        @unique
+  solved      Int           @default(0)
+  createdAt   DateTime      @default(now())
+  difficulty  String        @default("MEDIUM")
+  authorName  String
+  likes       Int           @default(0)
+  DefaultCode DefaultCode[]
+  Submission  Submission[]
+}
+
+model Submission {
+  id         String   @id
+  problemId  String
+  userId     String
+  code       String
+  createdAt  DateTime @default(now())
+  memory     Int?
+  time       Float?
+  status     String   @default("PENDING")
+  languageID Int
+  userName   String
+  Problem    Problem  @relation(fields: [problemId], references: [id])
+}
